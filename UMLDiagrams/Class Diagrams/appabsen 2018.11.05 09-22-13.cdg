@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="appabsen">
+  <ClassDiagramComponents>
+    <Class name="Kelas" package="appabsen" visibility="public" xPosition="192.0" yPosition="288.0">
+      <Fields>
+        <Field name="kd_kelas" type="String[]" visibility="package"/>
+        <Field name="nama_kelas" type="String[]" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="MataKuliah" package="appabsen" visibility="public" xPosition="740.0" yPosition="536.0">
+      <Fields>
+        <Field name="kd_matkul" type="String[]" visibility="package"/>
+        <Field name="mata_kuliah" type="String[]" visibility="package"/>
+        <Field name="sks" type="int[]" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Mahasiswa" package="appabsen" visibility="public" xPosition="480.0" yPosition="37.0">
+      <Fields>
+        <Field name="nim" type="String[]" visibility="package"/>
+        <Field name="nm_mahasiswa" type="String[]" visibility="package"/>
+        <Field name="semester" type="int[]" visibility="package"/>
+        <Field name="_kelas" type="Kelas" visibility="package"/>
+        <Field name="_prodi" type="Prodi" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Dosen" package="appabsen" visibility="public" xPosition="740.0" yPosition="288.0">
+      <Fields>
+        <Field name="nip" type="String[]" visibility="package"/>
+        <Field name="pass" type="String[]" visibility="package"/>
+        <Field name="nama_dosen" type="String[]" visibility="package"/>
+        <Field name="alamat" type="String[]" visibility="package"/>
+        <Field name="no_hp" type="int[]" visibility="package"/>
+        <Field name="foto" type="String[]" visibility="package"/>
+        <Field name="_matkul" type="MataKuliah" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Prodi" package="appabsen" visibility="public" xPosition="802.0" yPosition="63.0">
+      <Fields>
+        <Field name="kd_prodi" type="String[]" visibility="package"/>
+        <Field name="prodi" type="String[]" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="AppAbsen" package="appabsen" visibility="public" xPosition="490.0" yPosition="271.0">
+      <Fields>
+        <Field name="kehadiran_s" type="int" visibility="package"/>
+        <Field name="kehadiran_i" type="int" visibility="package"/>
+        <Field name="kehadiran_a" type="int" visibility="package"/>
+        <Field name="mingguke" type="int" visibility="package"/>
+        <Field name="tgl_absen" type="String" visibility="package"/>
+        <Field name="jam" type="String" visibility="package"/>
+        <Field name="_dosen" type="Dosen" visibility="package"/>
+        <Field name="_kelas" type="Kelas" visibility="package"/>
+        <Field name="_mhs" type="Mahasiswa" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="_prodi" source="appabsen.Mahasiswa" target="appabsen.Prodi" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="_kelas" source="appabsen.Mahasiswa" target="appabsen.Kelas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="_kelas" source="appabsen.AppAbsen" target="appabsen.Kelas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="_mhs" source="appabsen.AppAbsen" target="appabsen.Mahasiswa" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="_dosen" source="appabsen.AppAbsen" target="appabsen.Dosen" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="_matkul" source="appabsen.Dosen" target="appabsen.MataKuliah" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
